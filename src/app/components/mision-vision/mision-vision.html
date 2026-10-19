@@ -1,0 +1,17 @@
+<section id="mision">
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+              <h1>{{ titulo }}</h1>
+            </div>
+            <div class="row">
+                <div class="col m6" *ngFor="let element of misionVision">
+                    <h5>{{ element.titulo }}</h5>
+                    <i class="material-icons">{{ element.icono }}</i>
+                    <p>{{ element.descripcion }}</p>
+                    <p>{{ element.descripcion2 }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

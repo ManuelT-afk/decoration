@@ -1,0 +1,70 @@
+<nav>
+  <div class="nav-wrapper fondoBarra">
+    <a href="#" class="brand-logo right"><img src="img/casaDec32.png" /></a>
+    <a href="#" data-target="slide-out" class="sidenav-trigger"
+      ><i class="material-icons">menu</i></a
+    >
+    <ul id="nav-mobile" class="left hide-on-med-and-down">
+      <li>
+        <a href="#home">{{ inicio }}</a>
+      </li>
+      <li>
+        <a href="#departamentos">{{ categorias }}</a>
+      </li>
+      <li>
+        <a href="#mision"
+          ><i class="material-icons">collections_bookmark</i>{{ mision }}</a
+        >
+      </li>
+      <li>
+        <a href="#footer">{{ redesSociales }}</a>
+      </li>
+      <li>
+        <a href="">{{ catalogo }}</a>
+      </li>
+      <li>
+        <a href="">{{ contacto }}</a>
+      </li>
+      <li>
+        <a href="">{{ redesSociales }}</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<ul id="slide-out" class="sidenav">
+  <li>
+    <div class="user-view">
+      <a href="#user"><img class="circle" src="img/casaDec32.png" /></a>
+    </div>
+  </li>
+  <li>
+    <a class="waves-effect" href="#home"><i class="material-icons">home</i>{{ inicio }}</a>
+  </li>
+  <li>
+    <a class="waves-effect" href="#departamentos"
+      ><i class="material-icons">library_bookst</i>{{ categorias }}</a
+    >
+  </li>
+  <li>
+    <a class="waves-effect" href="#mision"
+      ><i class="material-icons">library_bookst</i>{{ mision }}</a
+    >
+  </li>
+  <li>
+    <a class="waves-effect" href="#catalogo"><i class="material-icons">book</i>{{ catalogo }}</a>
+  </li>
+  <li>
+    <a class="waves-effect" href="#contacto"
+      ><i class="material-icons">dialer_sip</i>{{ contacto }}</a
+    >
+  </li>
+  <li>
+    <a class="waves-effect" href="#footer"
+      ><i class="material-icons">account_circle</i>{{ redesSociales }}</a
+    >
+  </li>
+</ul>
+
+<app-inicio></app-inicio>
+  

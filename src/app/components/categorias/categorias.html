@@ -1,0 +1,122 @@
+<main class="catalogo container" id="departamentos">
+  <header class="encabezado center-align">
+    <p class="subtitulo">{{ titulo }}</p>
+    <h1>{{ subtitulo }}</h1>
+    <p>{{ slogan }}</p>
+  </header>
+
+  <nav class="navegacion-categorias" aria-label="Departamentos de decoración">
+    <ul class="tabs tabs-fixed-width">
+      <li class="tab" *ngFor="let departamento of departamentos; let i = index">
+        <a
+          href="#productos"
+          [class.active]="departamentoSeleccionado === departamento"
+          [attr.aria-current]="departamentoSeleccionado === departamento ? 'page' : null"
+          (click)="$event.preventDefault(); seleccionarDepartamento(i)"
+        >
+          <i [class]="departamento.icono" aria-hidden="true"></i>
+          <span>{{ departamento.nombre }}</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <section id="productos" class="seccion-productos" *ngIf="departamentoSeleccionado as categoria">
+    <div class="cabecera-categoria center-align">
+      <h2>{{ categoria.nombre }}</h2>
+      <p>{{ categoria.descripcion }}</p>
+    </div>
+
+    <div class="row" *ngIf="categoria.productos.length > 0; else sinProductos">
+      <div class="col s12 m6 l4" *ngFor="let producto of categoria.productos">
+        <article class="card tarjeta-producto hoverable">
+          <div class="card-image">
+            <img [src]="producto.imagen" [alt]="producto.nombre" loading="lazy" />
+          </div>
+          <div class="card-content">
+            <span class="card-title">{{ producto.nombre }}</span>
+            <p class="descripcion-producto">{{ producto.descripcion }}</p>
+            <p
+              class="precio"
+              [style.color]="producto.descuento ? 'red' : 'black'"
+              [style.font-size]="producto.descuento ? '30px' : '18px'"
+              [style.text-decoration]="producto.descuento ? 'line-through' : 'none'"
+            >
+              {{ producto.precio | currency: 'MXN' : 'symbol' : '1.2-2' }}
+            </p>
+            <div
+              class="card-panel black-text"
+              [class.cyan]="producto.disponible"
+              [class.accent-4]="producto.disponible"
+              [class.red]="!producto.disponible"
+              [class.darken-4]="!producto.disponible"
+            >
+              {{ producto.disponible ? 'Disponible' : 'No disponible' }}
+            </div>
+          </div>
+          <div class="card-action">
+            <a class="waves-effect waves-light btn pink lighten-1" (click)="verDetalle(producto)">
+              <i class="fa-solid fa-images left"></i> Ver detalle
+            </a>
+          </div>
+          <div class="estado-producto">
+            <span
+              *ngIf="producto.nuevo; else productoExistente"
+              class="new badge pink"
+              data-badge-caption="Nuevo"
+            >
+              <i class="fa-solid fa-star"></i>
+            </span>
+            <ng-template #productoExistente>
+              <span class="chip"> <i class="fa-solid fa-box-open"></i> Producto existente </span>
+            </ng-template>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <ng-template #sinProductos>
+      <p class="center-align">Por el momento no hay productos en esta categoría.</p>
+    </ng-template>
+  </section>
+  <div id="modalDetalle" class="modal modal-fixed-footer">
+    <div class="modal-content" *ngIf="productoSeleccionado">
+      <h4>{{ productoSeleccionado.nombre }}</h4>
+      <div class="row">
+        <div class="col s12 m7">
+          <div id="galeriaProducto" class="carousel carousel-slider">
+            <a class="carousel-item" *ngFor="let foto of productoSeleccionado.imagenes">
+              <img [src]="foto" [alt]="productoSeleccionado.nombre" />
+            </a>
+          </div>
+        </div>
+        <div class="col s12 m5 detalle-producto">
+          <h5>{{ productoSeleccionado.precio | currency: 'MXN' }}</h5>
+          <p>{{ productoSeleccionado.descripcion }}</p>
+          <p>
+            <i class="fa-solid fa-palette"></i> <strong> Colores:</strong>
+            {{ productoSeleccionado.colores }}
+          </p>
+          <p>
+            <i class="fa-solid fa-ruler-combined"></i> <strong> Medidas:</strong>
+            {{ productoSeleccionado.medidas }}
+          </p>
+          <p>
+            <i class="fa-solid fa-layer-group"></i> <strong> Material:</strong>
+            {{ productoSeleccionado.material }}
+          </p>
+          <div *ngIf="productoSeleccionado.nuevo" class="chip pink lighten-4">
+            <i class="fa-solid fa-star"></i> Producto nuevo
+          </div>
+          <div *ngIf="!productoSeleccionado.nuevo" class="chip grey lighten-3">
+            <i class="fa-solid fa-box-open"></i> Producto existente
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <a class="modal-close waves-effect waves-pink btn-flat"> Cerrar </a>
+    </div>
+  </div>
+</main>

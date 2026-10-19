@@ -1,0 +1,24 @@
+<footer class="page-footer" id="footer">
+          <div class="container">
+            <div class="row">
+             
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Siguenos en nuestras redes sociales</h5>
+                <ul>
+                  <li *ngFor="let red of redes">
+                    <a class="grey-text text-lighten-3" [href]="red.url" target="_blank" >
+                      <i [class]="red.icon" [style.color]="red.color" [style.font-size]="red.fuentes" aria-hidden="true"></i>
+                      {{ red.nombre }}
+                    </a>
+                </li>
+                </ul>
+              </div> 
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
+        </footer>

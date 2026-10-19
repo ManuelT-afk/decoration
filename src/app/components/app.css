@@ -1,0 +1,37 @@
+.fondoBarra{
+    background-color: rgb(124, 33, 33);
+}
+
+nav .brand-logo {
+    margin-right: 16px;
+}
+
+nav .brand-logo img {
+    height: 42px;
+    width: auto;
+    margin-top: 10px;
+}
+
+.sidenav li > a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #222;
+}
+
+.sidenav .material-icons,
+nav .material-icons,
+.sidenav i,
+nav i {
+    color: #000 !important;
+    vertical-align: middle;
+}
+
+@font-face{
+    font-family: "pixel";
+    src: url("../../../public/fonts/Cavalhatriz.ttf");
+}
+
+ul li a{
+    font-family: "pixel";
+}
