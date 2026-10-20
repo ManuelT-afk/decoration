@@ -1,4 +1,4 @@
-import { Service,Injectable, NgZone } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { environment } from './../../environments/environment.development';
 import { Solicitud } from './../models/solicitud';
 import { getDatabase, ref, push, set, update, remove, onValue, Database } from 'firebase/database';
@@ -10,7 +10,7 @@ import { initializeApp, getApps, getApp } from 'firebase/app';
   providedIn: 'root',
 })
 
-@Service()
+
 export class Contacto {
   private app = getApp.length ? getApp() : initializeApp(environment.firebaseConfig);
   private auth = getAuth(this.app);
