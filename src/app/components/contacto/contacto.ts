@@ -1,4 +1,6 @@
 import { Component, AfterViewInit,OnInit,OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ContactoService } from '../../services/contacto';
 declare var R: any;
 declare var $: any; //   para darle uso a jquery
 
