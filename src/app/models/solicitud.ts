@@ -6,8 +6,8 @@ export interface Solicitud {
     fecha  : string;
     modalidad : string;
     tipoProducto : string;
-    complemento  : string;
+    complementos  : string;
     detalles : string;
-    aviso : string;
+    aviso : boolean;
 
 }
