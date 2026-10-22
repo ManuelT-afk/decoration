@@ -202,12 +202,14 @@
         </div>
         <div class="row">
           <div class="col s12 center-align">
-            <input
+            <button
               type="submit"
-              value="Guardar"
-              class="Btn brown lighten-2"
+              class="btn brown lighten-2"
               [disabled]="contactoForm.invalid || guardando"
-            />
+            >
+              {{ idEditar ? 'Actualizar' : 'Guardar' }}
+            </button>
+
             <input type="submit" value="Cancelar" class="Btn orange lighten-4" />
           </div>
         </div>
