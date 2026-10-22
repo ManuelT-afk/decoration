@@ -1,0 +1,51 @@
+.container {
+  margin-top: 35px;
+  margin-bottom: 50px;
+}
+
+.card {
+  border-radius: 12px;
+}
+
+.card-content {
+  padding: 28px;
+}
+
+h4,
+h5 {
+  color: #ad4673;
+}
+
+.campo {
+  margin: 25px 0;
+}
+
+.campo h6 {
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.campo p {
+  margin-bottom: 12px;
+}
+
+.browser-default {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.botones {
+  display: flex;
+  gap: 12px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.tabla-contenedor {
+  overflow-x: auto;
+}
+
+table {
+  margin-top: 18px;
+}

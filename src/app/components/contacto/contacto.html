@@ -210,10 +210,31 @@
               {{ idEditar ? 'Actualizar' : 'Guardar' }}
             </button>
 
-            <input type="submit" value="Cancelar" class="Btn orange lighten-4" />
+            <input type="submit" value="Cancelar" class="Btn orange lighten-4"(click)="limpiar()"x />
           </div>
         </div>
       </div>
     </div>
   </section>
 </form>
+<div>
+</div>
+</div></div>
+
+<div class="card"><div class="card-content">
+<h5>Solicitudes registradas</h5>
+<div class="tabla-contenedor"><table class="striped responsive-table">
+<thead><tr><th>Cliente</th><th>Correo</th><th>Producto</th>
+<th>Fecha</th><th>Entrega</th><th>Acciones</th></tr></thead>
+<tbody>
+<tr *ngFor="let s of solicitudes">
+<td>{{ s.nombre }}</td><td>{{ s.correo }}</td><td>{{ s.producto }}</td>
+<td>{{ s.fechaEvento }}</td><td>{{ s.entrega }}</td>
+<td><button type="button" class="btn-small blue" (click)="editar(s)">Editar</button>
+<button type="button" class="btn-small red" (click)="eliminar(s)">Eliminar</button></td>
+</tr>
+<tr *ngIf="solicitudes.length === 0"><td colspan="6">Sin solicitudes.</td></tr>
+</tbody>
+</table></div>
+</div></div>
+</div>
