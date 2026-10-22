@@ -143,14 +143,13 @@ export class Contacto implements AfterViewInit, OnInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    const elements = document.querySelectorAll('select');
-    if (typeof R !== 'undefined' && R?.Forsalect) {
-      R.Forsalect.init(elements);
-    }
+  if (typeof R !== 'undefined') {
+    R.FormSelect.init(document.querySelectorAll('select'));
+  }
 
-    if (typeof $ !== 'undefined') {
-      $('input#nombre, input#email, input#telefono, textarea#comentarios').characterCounter();
-    }
+  if (typeof $ !== 'undefined') {
+    $('input#nombre, input#email, input#telefono, textarea#comentarios').characterCounter();
+  }
   }
 
   nombre = 'Nombre';
