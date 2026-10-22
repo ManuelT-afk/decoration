@@ -1,159 +1,217 @@
 <form action="">
-<section>
-  <div class="container">
-    <div class="row">
-      <div class="col s12 center-align">
-        <h1>Contactanos .....</h1>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col s12 input-field">
-        <input
-          type="text"
-          name="nombre"
-          id="nombre"
-          pattern="[A-Za-z\sÁÉÍÓÚáéíóúÑñ]{10,80}"
-          minlength="10"
-          maxlength="80"
-          data-length="80"
-          [(ngModel)]="formulario.nombre" #nombre="ngModel"
-          required
-        />
-        <label for="nombre">{{ nombre }}</label>
-        <span class="helper-text" data-error="Dato invalido" data-success="Datos correctos"></span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col s12 input-field">
-        <input
-          type="email"
-          name="email"
-          id="email"
-          minlength="20"
-          maxlength="70"
-          data-length="70"
-          class="validate"
-          [(ngModel)]="formulario.correo" #correo="ngModel"
-          required
-        />
-        <label for="email">{{ email }}</label>
-        <span class="helper-text" data-error="Dato invalido" data-success="Datos correctos"></span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col s12 input-field">
-        <input type="text" name="telefono" id="telefono" pattern="[0-9]{10}" data-length="10" class="validate" 
-        [(ngModel)]="formulario.telefono" #telefono="ngModel" required/>
-        
-        <label for="telefono">{{ telefono }}</label>
-        
-        <span class="helper-text" data-error="Dato invalido" data-success="Datos correctos"></span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col s12">
-        <input type="date" name="fecha" id="fecha"[(ngModel)]="formulario.fechaEvento" />
-        <label for="fecha">{{ fecha }}</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col s12">
-        <label for="Modalidad de Entrega">Modalidad de Entrega</label>
-        <ul>
-          <li>
-            <label>
-              <input type="radio" name="modalidad"[(ngModel)]="formulario.entrega"/>
-              <span> Recoger sucursal </span>
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="radio" name="modalidad"[(ngModel)]="formulario.entrega" />
-              <span> Entrega a domicilio </span>
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="radio" name="modalidad" />
-              <span> Plataforma de Envio </span>
-            </label>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col s12">
-        <label>Selecciona el tipo de Producto</label>
-        <select name="tipoProducto" id="tipoProdcuto" class="validate" [(ngModel)]="formulario.producto"required>
-          <option value="">[Seleccion]</option>
-          <option value="pastel">Pastel</option>
-          <option value="panaderia">Panaderia</option>
-          <option value="galletas">Galletas</option>
-          <option value="Boleria">Boleria</option>
-        </select>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col s12">
-        <label>Seleccion tus complementos</label>
-        <ul>
-          <li>
-            <label>
-              <input type="checkbox" name="complementos" value="velas" [(ngModel)]="formulario.entrega" />
-              <span>Velas de pastel</span>
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="checkbox" name="complementos" value="figuraDecorativa" [(ngModel)]="formulario.entrega" />
-              <span>Figura Decorativa</span>
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="checkbox" name="complementos" value="bolsaEcologica" [(ngModel)]="formulario.entrega" />
-              <span>Bolsa Ecologica</span>
-            </label>
-          </li>
-        </ul>
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col s12 center-align">
+          <h1>Contactanos .....</h1>
+        </div>
       </div>
       <div class="row">
         <div class="col s12 input-field">
-          <textarea
-            name="comentarios"
-            id="comentarios"
-            class="materialize-textarea validate"
-            pattern="[A-Za-z\sÁÉÍÓÚáéíóúÑñ]{15,200}"
-            maxlength="200"
-            data-length="200"
-            
-            
-          ></textarea>
-          <label for="comentarios">Detalles del pedido</label>
-          <span class="helper-text" data-error="Dato invalido" data-success="Datos correctos"></span>
+          <input
+            type="text"
+            name="nombre"
+            id="nombre"
+            pattern="[A-Za-z\sÁÉÍÓÚáéíóúÑñ]{10,80}"
+            minlength="10"
+            maxlength="80"
+            data-length="80"
+            [(ngModel)]="formulario.nombre"
+            #nombre="ngModel"
+            required
+          />
+          <label for="nombre">{{ nombre }}</label>
+          <span
+            class="helper-text"
+            data-error="Dato invalido"
+            data-success="Datos correctos"
+          ></span>
         </div>
       </div>
+      <div class="row">
+        <div class="col s12 input-field">
+          <input
+            type="email"
+            name="email"
+            id="email"
+            minlength="20"
+            maxlength="70"
+            data-length="70"
+            class="validate"
+            [(ngModel)]="formulario.correo"
+            #correo="ngModel"
+            required
+          />
+          <label for="email">{{ email }}</label>
+          <span
+            class="helper-text"
+            data-error="Dato invalido"
+            data-success="Datos correctos"
+          ></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 input-field">
+          <input
+            type="text"
+            name="telefono"
+            id="telefono"
+            pattern="[0-9]{10}"
+            data-length="10"
+            class="validate"
+            [(ngModel)]="formulario.telefono"
+            #telefono="ngModel"
+            required
+          />
 
+          <label for="telefono">{{ telefono }}</label>
+
+          <span
+            class="helper-text"
+            data-error="Dato invalido"
+            data-success="Datos correctos"
+          ></span>
+        </div>
+      </div>
       <div class="row">
         <div class="col s12">
-          <p>Aceptas el aviso de privacidad</p>
-          <div class="switch">
-            <label>
-              No
-              <input type="checkbox" name="aceptar" id="aceptar" />
-              <span class="lever"></span>
-              Si
-            </label>
+          <input type="date" name="fecha" id="fecha" [(ngModel)]="formulario.fechaEvento" />
+          <label for="fecha">{{ fecha }}</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <label for="Modalidad de Entrega">Modalidad de Entrega</label>
+          <ul>
+            <li>
+              <label>
+                <input type="radio" name="modalidad" [(ngModel)]="formulario.entrega" />
+                <span> Recoger sucursal </span>
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" name="modalidad" [(ngModel)]="formulario.entrega" />
+                <span> Entrega a domicilio </span>
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" name="modalidad" />
+                <span> Plataforma de Envio </span>
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <label>Selecciona el tipo de Producto</label>
+          <select
+            name="tipoProducto"
+            id="tipoProdcuto"
+            class="validate"
+            [(ngModel)]="formulario.producto"
+            required
+          >
+            <option value="">[Seleccion]</option>
+            <option value="pastel">Pastel</option>
+            <option value="panaderia">Panaderia</option>
+            <option value="galletas">Galletas</option>
+            <option value="Boleria">Boleria</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <label>Seleccion tus complementos</label>
+          <ul>
+            <li>
+              <label>
+                <input
+                  type="checkbox"
+                  name="complementos"
+                  value="velas"
+                  [(ngModel)]="formulario.entrega"
+                />
+                <span>Velas de pastel</span>
+              </label>
+            </li>
+            <li>
+              <label>
+                <input
+                  type="checkbox"
+                  name="complementos"
+                  value="figuraDecorativa"
+                  [(ngModel)]="formulario.entrega"
+                />
+                <span>Figura Decorativa</span>
+              </label>
+            </li>
+            <li>
+              <label>
+                <input
+                  type="checkbox"
+                  name="complementos"
+                  value="bolsaEcologica"
+                  [(ngModel)]="formulario.entrega"
+                />
+                <span>Bolsa Ecologica</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="row">
+          <div class="col s12 input-field">
+            <textarea
+              name="comentarios"
+              id="comentarios"
+              class="materialize-textarea validate"
+              pattern="[A-Za-z\sÁÉÍÓÚáéíóúÑñ]{15,200}"
+              maxlength="200"
+              data-length="200"
+              [(ngModel)]="formulario.comentario"
+            ></textarea>
+            <label for="comentarios">Detalles del pedido</label>
+            <span
+              class="helper-text"
+              data-error="Dato invalido"
+              data-success="Datos correctos"
+            ></span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            <p>Aceptas el aviso de privacidad</p>
+            <div class="switch">
+              <label>
+                No
+                <input
+                  type="checkbox"
+                  name="aceptaAviso"
+                  id="aceptar"
+                  [(ngModel)]="formulario.atencionPersonalizada"
+                />
+                />
+                <span class="lever"></span>
+                Si
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 center-align">
+            <input
+              type="submit"
+              value="Guardar"
+              class="Btn brown lighten-2"
+              [disabled]="contactoForm.invalid || guardando"
+            />
+            <input type="submit" value="Cancelar" class="Btn orange lighten-4" />
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col s12 center-align">
-          <input type="submit" value="Guardar" class="Btn brown lighten-2" />
-          <input type="submit" value="Cancelar" class="Btn orange lighten-4" />
-        </div>
-      </div>
     </div>
-  </div>
-</section>
+  </section>
 </form>
