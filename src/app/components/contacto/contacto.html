@@ -96,18 +96,26 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col s12">
-          <label>Selecciona el tipo de Producto</label>
-          <select name="tipoProducto" id="tipoProducto" class="validate" [(ngModel)]="formulario.tipoProducto" required>
-            <option value="">[Seleccion]</option>
-            <option value="pastel">Pastel</option>
-            <option value="panaderia">Panaderia</option>
-            <option value="galletas">Galletas</option>
-            <option value="Boleria">Boleria</option>
-          </select>
-        </div>
-      </div>
+  <div class="row">
+  <div class="col s12">
+    <div class="input-field">
+      <select
+        name="tipoProducto"
+        id="tipoProducto"
+        class="validate"
+        [(ngModel)]="formulario.tipoProducto"
+        required
+      >
+        <option value="" disabled selected>[Seleccion]</option>
+        <option value="pastel">Pastel</option>
+        <option value="panaderia">Panaderia</option>
+        <option value="galletas">Galletas</option>
+        <option value="Boleria">Boleria</option>
+      </select>
+      <label>Selecciona el tipo de Producto</label>
+    </div>
+  </div>
+</div>
 
       <div class="row">
         <div class="col s12">
