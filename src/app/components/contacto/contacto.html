@@ -76,19 +76,19 @@
           <ul>
             <li>
               <label>
-                <input type="radio" name="modalidad" value="recoger" [(ngModel)]="formulario.modalidad" />
+                <input type="radio" name="modalidad" required value="recoger" [(ngModel)]="formulario.modalidad" value="Recoger en Sucursal" />
                 <span>Recoger sucursal</span>
               </label>
             </li>
             <li>
               <label>
-                <input type="radio" name="modalidad" value="domicilio" [(ngModel)]="formulario.modalidad" />
+                <input type="radio" name="modalidad" required value="domicilio" [(ngModel)]="formulario.modalidad" value="Entrega a domicilio"/>
                 <span>Entrega a domicilio</span>
               </label>
             </li>
             <li>
               <label>
-                <input type="radio" name="modalidad" value="envio" [(ngModel)]="formulario.modalidad" />
+                <input type="radio" name="modalidad" required value="envio" [(ngModel)]="formulario.modalidad" value="Plataforma de Envío" />
                 <span>Plataforma de Envío</span>
               </label>
             </li>

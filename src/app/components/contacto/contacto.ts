@@ -1,7 +1,8 @@
-import { Component, AfterViewInit, OnInit, OnDestroy } from '@angular/core';
+import { Component, AfterViewInit, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ContactoService } from '../../services/contacto';
 import { Solicitud } from '../../models/solicitud';
+import { NgForm } from '@angular/forms';
 
 declare var R: any;
 declare var $: any;
@@ -13,6 +14,7 @@ declare var $: any;
   styleUrl: './contacto.css',
 })
 export class Contacto implements AfterViewInit, OnInit, OnDestroy {
+  @ViewChild('contactoForm') contactoForm?: NgForm;
   solicitudes: Solicitud[] = [];
   suscripcion?: Subscription;
   idEditar: string | null = null;
@@ -56,9 +58,10 @@ export class Contacto implements AfterViewInit, OnInit, OnDestroy {
       fecha: '',
       modalidad: '',
       tipoProducto: '',
-      complementos: '',
+      complementos: [],
       detalles: '',
       aviso: false,
+      fechaRegistro: Date.now(),
     };
   }
 
@@ -80,7 +83,13 @@ export class Contacto implements AfterViewInit, OnInit, OnDestroy {
   }
 
   seleccionarComplemento(c: string, marcado: boolean): void {
-    this.formulario.complementos = c;
+    if (marcado) {
+      if (!this.formulario.complementos.includes(c)) {
+        this.formulario.complementos.push(c);
+      }
+    } else {
+      this.formulario.complementos = this.formulario.complementos.filter((item) => item !== c);
+    }
   }
 
   async guardar(): Promise<void> {
@@ -143,13 +152,13 @@ export class Contacto implements AfterViewInit, OnInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-  if (typeof R !== 'undefined') {
-    R.FormSelect.init(document.querySelectorAll('select'));
-  }
+    if (typeof R !== 'undefined') {
+      R.FormSelect.init(document.querySelectorAll('select'));
+    }
 
-  if (typeof $ !== 'undefined') {
-    $('input#nombre, input#email, input#telefono, textarea#comentarios').characterCounter();
-  }
+    if (typeof $ !== 'undefined') {
+      $('input#nombre, input#email, input#telefono, textarea#comentarios').characterCounter();
+    }
   }
 
   nombre = 'Nombre';
