@@ -4,6 +4,7 @@ import { ContactoService } from '../../services/contacto';
 import { Solicitud } from '../../models/solicitud';
 import { NgForm } from '@angular/forms';
 
+declare var M: any;
 declare var R: any;
 declare var $: any;
 
@@ -92,8 +93,28 @@ export class Contacto implements AfterViewInit, OnInit, OnDestroy {
     }
   }
 
+  get formularioValido(): boolean {
+    const f = this.formulario;
+
+    return !!(
+      f.nombre?.trim() &&
+      f.correo?.trim() &&
+      f.telefono?.trim() &&
+      f.fecha?.trim() &&
+      f.modalidad?.trim() &&
+      f.tipoProducto?.trim() &&
+      f.detalles?.trim()
+    );
+  }
+
   async guardar(): Promise<void> {
     if (this.guardando) return;
+
+    if (!this.formularioValido) {
+      this.error = 'Completa nombre, correo, teléfono, fecha, modalidad, tipo de producto y detalles.';
+      this.mensaje = '';
+      return;
+    }
 
     this.guardando = true;
     this.error = '';
@@ -152,6 +173,10 @@ export class Contacto implements AfterViewInit, OnInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
+    if (typeof M !== 'undefined') {
+      M.FormSelect.init(document.querySelectorAll('select'));
+    }
+
     if (typeof R !== 'undefined') {
       R.FormSelect.init(document.querySelectorAll('select'));
     }

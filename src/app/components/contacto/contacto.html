@@ -30,9 +30,8 @@
         <div class="col s12 input-field">
           <input
             type="email"
-            name="email"
+            name="correo"
             id="email"
-            minlength="20"
             maxlength="70"
             data-length="70"
             class="validate"
@@ -65,7 +64,7 @@
 
       <div class="row">
         <div class="col s12">
-          <input type="date" name="fecha" id="fecha" [(ngModel)]="formulario.fecha" />
+          <input type="date" name="fecha" id="fecha" [(ngModel)]="formulario.fecha" required />
           <label for="fecha">Fecha</label>
         </div>
       </div>
@@ -76,19 +75,19 @@
           <ul>
             <li>
               <label>
-                <input type="radio" name="modalidad" required value="recoger" [(ngModel)]="formulario.modalidad" value="Recoger en Sucursal" />
+                <input type="radio" name="modalidad" required value="recoger" [(ngModel)]="formulario.modalidad" />
                 <span>Recoger sucursal</span>
               </label>
             </li>
             <li>
               <label>
-                <input type="radio" name="modalidad" required value="domicilio" [(ngModel)]="formulario.modalidad" value="Entrega a domicilio"/>
+                <input type="radio" name="modalidad" required value="domicilio" [(ngModel)]="formulario.modalidad" />
                 <span>Entrega a domicilio</span>
               </label>
             </li>
             <li>
               <label>
-                <input type="radio" name="modalidad" required value="envio" [(ngModel)]="formulario.modalidad" value="Plataforma de Envío" />
+                <input type="radio" name="modalidad" required value="envio" [(ngModel)]="formulario.modalidad" />
                 <span>Plataforma de Envío</span>
               </label>
             </li>
@@ -96,26 +95,26 @@
         </div>
       </div>
 
-  <div class="row">
-  <div class="col s12">
-    <div class="input-field">
-      <select
-        name="tipoProducto"
-        id="tipoProducto"
-        class="validate"
-        [(ngModel)]="formulario.tipoProducto"
-        required
-      >
-        <option value="" disabled selected>[Seleccion]</option>
-        <option value="pastel">Pastel</option>
-        <option value="panaderia">Panaderia</option>
-        <option value="galletas">Galletas</option>
-        <option value="Boleria">Boleria</option>
-      </select>
-      <label>Selecciona el tipo de Producto</label>
-    </div>
-  </div>
-</div>
+      <div class="row">
+        <div class="col s12">
+          <div class="input-field">
+            <select
+              name="tipoProducto"
+              id="tipoProducto"
+              class="validate"
+              [(ngModel)]="formulario.tipoProducto"
+              required
+            >
+              <option value="" disabled selected>[Seleccion]</option>
+              <option value="pastel">Pastel</option>
+              <option value="panaderia">Panaderia</option>
+              <option value="galletas">Galletas</option>
+              <option value="Boleria">Boleria</option>
+            </select>
+            <label>Selecciona el tipo de Producto</label>
+          </div>
+        </div>
+      </div>
 
       <div class="row">
         <div class="col s12">
@@ -123,19 +122,37 @@
           <ul>
             <li>
               <label>
-                <input type="checkbox" name="complementos" value="velas" [checked]="tieneComplemento('velas')" />
+                <input
+                  type="checkbox"
+                  name="complementoVelas"
+                  value="velas"
+                  [checked]="tieneComplemento('velas')"
+                  (change)="seleccionarComplemento('velas', $any($event.target).checked)"
+                />
                 <span>Velas de pastel</span>
               </label>
             </li>
             <li>
               <label>
-                <input type="checkbox" name="complementos" value="figuraDecorativa" [(ngModel)]="formulario.complementos" />
+                <input
+                  type="checkbox"
+                  name="complementoFigura"
+                  value="figuraDecorativa"
+                  [checked]="tieneComplemento('figuraDecorativa')"
+                  (change)="seleccionarComplemento('figuraDecorativa', $any($event.target).checked)"
+                />
                 <span>Figura Decorativa</span>
               </label>
             </li>
             <li>
               <label>
-                <input type="checkbox" name="complementos" value="bolsaEcologica" [(ngModel)]="formulario.complementos" />
+                <input
+                  type="checkbox"
+                  name="complementoBolsa"
+                  value="bolsaEcologica"
+                  [checked]="tieneComplemento('bolsaEcologica')"
+                  (change)="seleccionarComplemento('bolsaEcologica', $any($event.target).checked)"
+                />
                 <span>Bolsa Ecologica</span>
               </label>
             </li>
@@ -149,10 +166,10 @@
             name="comentarios"
             id="comentarios"
             class="materialize-textarea validate"
-            pattern="[A-Za-z\sÁÉÍÓÚáéíóúÑñ]{15,200}"
             maxlength="200"
             data-length="200"
             [(ngModel)]="formulario.detalles"
+            required
           ></textarea>
           <label for="comentarios">Detalles del pedido</label>
           <span class="helper-text" data-error="Dato invalido" data-success="Datos correctos"></span>
@@ -165,7 +182,7 @@
           <div class="switch">
             <label>
               No
-              <input type="checkbox" name="aceptaAviso" id="aceptar" [(ngModel)]="formulario.aviso" />
+              <input type="checkbox" name="aviso" id="aceptar" [(ngModel)]="formulario.aviso" />
               <span class="lever"></span>
               Si
             </label>
@@ -175,7 +192,7 @@
 
       <div class="row">
         <div class="col s12 center-align">
-          <button type="submit" class="btn brown lighten-2" [disabled]="contactoForm.invalid || guardando">
+          <button type="submit" class="btn brown lighten-2" [disabled]="guardando || !formularioValido">
             {{ idEditar ? 'Actualizar' : 'Guardar' }}
           </button>
 
