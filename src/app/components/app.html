@@ -31,6 +31,16 @@
   </div>
 </nav>
 
+ <button *ngIf="mostrarVolverArriba" type="button"
+
+class="btn-floating btn-large blue darken-3 back-top"
+
+(click)="volverArriba()" aria-label="Volver al inicio">
+
+<i class="material-icons" aria-hidden="true">arrow_upward</i>
+
+</button>
+
 <ul id="slide-out" class="sidenav">
   <li>
     <div class="user-view">
@@ -64,6 +74,8 @@
     >
   </li>
 </ul>
+
+
 
 <app-inicio></app-inicio>
   
