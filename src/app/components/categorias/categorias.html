@@ -1,13 +1,13 @@
 <main class="catalogo container" id="departamentos">
   <header class="encabezado center-align">
-    <p class="subtitulo">{{ titulo }}</p>
+    <p class="subtitulo" appScrollReveal>{{ titulo }}</p>
     <h1>{{ subtitulo }}</h1>
     <p>{{ slogan }}</p>
   </header>
 
   <nav class="navegacion-categorias" aria-label="Departamentos de decoración">
     <ul class="tabs tabs-fixed-width">
-      <li class="tab" *ngFor="let departamento of departamentos; let i = index">
+      <li class="tab" *ngFor="let departamento of departamentos; let i = index" appScrollReveal [style.transition-delay.ms]="(i % 3) * 100">
         <a
           href="#productos"
           [class.active]="departamentoSeleccionado === departamento"
