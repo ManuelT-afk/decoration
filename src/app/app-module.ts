@@ -10,9 +10,19 @@ import { MisionVision } from './components/mision-vision/mision-vision';
 import { RedesSociales } from './components/redes-sociales/redes-sociales';
 import { Contacto } from './components/contacto/contacto';
 import { ScrollReveal } from './directives/scroll-reveal';
+import { Sucursales } from './components/sucursales/sucursales';
 
 @NgModule({
-  declarations: [App, Inicio, Categorias, MisionVision, RedesSociales, Contacto, ScrollReveal],
+  declarations: [
+    App,
+    Inicio,
+    Categorias,
+    MisionVision,
+    RedesSociales,
+    Contacto,
+    ScrollReveal,
+    Sucursales,
+  ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App, Inicio, Categorias, MisionVision, RedesSociales, Contacto],
