@@ -1,5 +1,72 @@
-<p>catalogo works!</p>
+<section class="catalogo-seccion">
+  <h2>Revista HOME & DECO</h2>
 
-<h1 appScrollReveal revealAnimation="fade-up"
+  <p>Explora nuestras colecciones pasando las hojas.</p>
 
-[revealDuration]="1000">Bienvenidos</h1>**
+  <div class="libro" aria-label="Revista de decoración">
+    <div class="base-izquierda">
+      <h3>HOME & DECO</h3>
+      <p>Decoración que inspira</p>
+
+      <p>Velas · Figuras · Lámparas · Jarrones · Espejos · Textiles</p>
+    </div>
+
+    <div class="base-derecha">
+      <h3>Gracias por visitarnos</h3>
+      <p>Tu hogar, tu estilo.</p>
+    </div>
+
+    <div
+      class="hoja"
+      *ngFor="let hoja of hojas; let i = index"
+      [class.volteada]="i < actual"
+      [style.zIndex]="capa(i)"
+    >
+      <article class="pagina frente">
+        <h3>{{ hoja.frente.titulo }}</h3>
+
+        <img class="principal" [src]="hoja.frente.imagenPrincipal" [alt]="hoja.frente.titulo" />
+
+        <p>{{ hoja.frente.descripcion }}</p>
+
+        <div class="productos">
+          <div class="producto" *ngFor="let p of hoja.frente.productos">
+            <img [src]="p.imagen" [alt]="p.nombre" />
+            <h4>{{ p.nombre }}</h4>
+
+            <strong>{{ p.precio | currency: 'MXN' : 'symbol' : '1.0-0' }}</strong>
+          </div>
+        </div>
+      </article>
+
+      <article class="pagina reverso">
+        <h3>{{ hoja.reverso.titulo }}</h3>
+
+        <img class="principal" [src]="hoja.reverso.imagenPrincipal" [alt]="hoja.reverso.titulo" />
+
+        <p>{{ hoja.reverso.descripcion }}</p>
+
+        <div class="productos">
+          <div class="producto" *ngFor="let p of hoja.reverso.productos">
+            <img [src]="p.imagen" [alt]="p.nombre" />
+            <h4>{{ p.nombre }}</h4>
+
+            <strong>{{ p.precio | currency: 'MXN' : 'symbol' : '1.0-0' }}</strong>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div class="navegacion">
+    <button type="button" (click)="anterior()" [disabled]="actual === 0 || animando">
+      &#10094; Anterior
+    </button>
+
+    <span>Hoja {{ actual }} de {{ hojas.length }}</span>
+
+    <button type="button" (click)="siguiente()" [disabled]="finalizado || animando">
+      Siguiente &#10095;
+    </button>
+  </div>
+</section>
