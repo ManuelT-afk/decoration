@@ -71,7 +71,7 @@ export class Catalogo {
   ];
 
   private crear(titulo: string, carpeta: string, datos: [string, number][]): Hoja {
-    const base = 'assets/img/catalogo/' + carpeta + '/';
+    const base = 'img/catalogo/' + carpeta + '/';
 
     const productos = datos.map((d, i) => ({
       nombre: d[0],
