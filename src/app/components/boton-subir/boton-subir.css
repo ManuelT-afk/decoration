@@ -1,0 +1,22 @@
+boton-subir.component.css .boton-subir {
+  position: fixed !important;
+  right: 22px;
+  bottom: 24px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
+}
+.flecha-arriba {
+  color: white;
+  font-size: 30px;
+  line-height: 1;
+}
+@media (max-width: 600px) {
+  .boton-subir {
+    right: 14px;
+    bottom: 16px;
+  }
+}

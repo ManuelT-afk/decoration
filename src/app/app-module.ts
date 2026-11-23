@@ -11,6 +11,8 @@ import { RedesSociales } from './components/redes-sociales/redes-sociales';
 import { Contacto } from './components/contacto/contacto';
 import { ScrollReveal } from './directives/scroll-reveal';
 import { Sucursales } from './components/sucursales/sucursales';
+import { Catalogo } from './components/catalogo/catalogo';
+import { BotonSubir } from './components/boton-subir/boton-subir';
 
 @NgModule({
   declarations: [
@@ -22,9 +24,11 @@ import { Sucursales } from './components/sucursales/sucursales';
     Contacto,
     ScrollReveal,
     Sucursales,
+    Catalogo,
+    BotonSubir,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners()],
-  bootstrap: [App, Inicio, Categorias, MisionVision, RedesSociales, Contacto],
+  bootstrap: [App, Inicio, Categorias, MisionVision, RedesSociales, Contacto, Sucursales, Catalogo, BotonSubir],
 })
 export class AppModule {}

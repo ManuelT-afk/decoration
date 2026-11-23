@@ -1,41 +1,53 @@
-.reveal-ready { opacity: 0; transform: translateY(28px);
+/* Base: las clases se añaden al inicializar la directiva */
 
-transition: opacity .65s ease, transform .65s ease; }
+.scroll-reveal {
 
-.reveal-ready.reveal-visible { opacity: 1; transform: none; }
+opacity: 0;
 
-.reveal-ready.reveal-left { transform: translateX(-28px); }
+transition-property: opacity, transform;
 
-.reveal-ready.reveal-right { transform: translateX(28px); }
+transition-duration: var(--reveal-duration, 800ms);
 
-.reveal-ready.reveal-zoom { transform: scale(.94); }
+transition-delay: 0ms;
 
-.reveal-ready.reveal-visible { transform: none; }
-
-.product-card { transition: transform .2s ease, box-shadow .2s ease; }
-
-@media (hover: hover) and (pointer: fine) {
-
-.product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px #0002; }
+transition-timing-function: cubic-bezier(.22, 1, .36, 1);
 
 }
 
-.product-card:focus-within { outline: 2px solid #1565c0; outline-offset: 2px; }
+.scroll-reveal.reveal-fade-up { transform: translateY(50px); }
 
-.btn-dynamic { transition: transform .15s ease, filter .15s ease; }
+.scroll-reveal.reveal-fade-in { transform: none; }
 
-.btn-dynamic:active { transform: scale(.97); }
+.scroll-reveal.reveal-slide-left { transform: translateX(-60px); }
 
-.back-top { position: fixed; bottom: 18px; right: 18px; z-index: 50; }
+.scroll-reveal.reveal-slide-right { transform: translateX(60px); }
 
-@media (max-width: 600px) { .reveal-ready { transition-duration: .4s; } }
+.scroll-reveal.reveal-zoom-in { transform: scale(.85); }
+
+.scroll-reveal.reveal-bounce-in {
+
+transform: translateY(45px) scale(.9);
+
+transition-timing-function: cubic-bezier(.34, 1.56, .64, 1);
+
+}
+
+.scroll-reveal.reveal-rotate-in { transform: rotate(-12deg) scale(.85); }
+
+.scroll-reveal.reveal-visible {
+
+opacity: 1;
+
+transform: none;
+
+transition-delay: var(--reveal-delay, 0ms);
+
+}
 
 @media (prefers-reduced-motion: reduce) {
 
-.reveal-ready { opacity: 1 !important; transform: none !important; transition: none !important; }
+.scroll-reveal { opacity: 1 !important; transform: none !important;
 
-.product-card, .btn-dynamic { transition: none !important; }
-
-html:focus-within { scroll-behavior: auto; }
+transition: none !important; }
 
 }
